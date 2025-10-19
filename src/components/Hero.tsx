@@ -17,47 +17,37 @@ const Hero = () => {
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto space-y-6">
-          {/* Profile Image */}
-          <div className="flex justify-center mb-6">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-2xl opacity-50 animate-glow" />
-              <img 
-                src={profileImg} 
-                alt="Mohamed Shaifudeen Profile" 
-                className="relative w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
-              />
+      <div className="container mx-auto px-4 z-10 animate-fade-in">
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Text Content */}
+          <div className="space-y-6 text-left">
+            <div className="space-y-3">
+              <p className="text-primary text-sm font-medium tracking-wider uppercase animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
+                Hi, I'm
+              </p>
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold gradient-text animate-fade-in opacity-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+                Mohamed Shaifudeen
+              </h1>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed animate-fade-in opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
+                A passionate Computer Science student specializing in{" "}
+                <span className="text-primary font-semibold">full-stack web development</span>,{" "}
+                <span className="text-secondary font-semibold">Java programming</span>, and{" "}
+                <span className="text-primary font-semibold">AI-driven projects</span>.
+              </p>
             </div>
-          </div>
 
-          <div className="space-y-3">
-            <p className="text-primary text-sm font-medium tracking-wider uppercase">
-              Hi, I'm
-            </p>
-            <h1 className="text-3xl md:text-5xl font-bold gradient-text mb-3">
-              Mohamed Shaifudeen
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-              A passionate Computer Science student specializing in{" "}
-              <span className="text-primary font-semibold">full-stack web development</span>,{" "}
-              <span className="text-secondary font-semibold">Java programming</span>, and{" "}
-              <span className="text-primary font-semibold">AI-driven projects</span>.
-            </p>
-          </div>
+            <div className="flex flex-wrap gap-4 items-center pt-4 animate-fade-in opacity-0" style={{ animationDelay: '0.8s', animationFillMode: 'forwards' }}>
+              <Button variant="default" size="lg" className="group animate-glow-pulse">
+                <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
+                Download CV
+              </Button>
+              <Button variant="outline" size="lg" className="gap-2">
+                <Mail className="h-5 w-5" />
+                Get In Touch
+              </Button>
+            </div>
 
-          <div className="flex flex-wrap gap-4 justify-center items-center pt-4">
-            <Button variant="default" size="lg" className="group animate-glow-pulse">
-              <Download className="mr-2 h-5 w-5 group-hover:animate-bounce" />
-              Download CV
-            </Button>
-            <Button variant="outline" size="lg" className="gap-2">
-              <Mail className="h-5 w-5" />
-              Get In Touch
-            </Button>
-          </div>
-
-          <div className="flex gap-4 justify-center pt-8">
+            <div className="flex gap-4 pt-8 animate-fade-in opacity-0" style={{ animationDelay: '1s', animationFillMode: 'forwards' }}>
             <a 
               href="https://github.com/Shaifudeen007" 
               target="_blank" 
@@ -80,6 +70,24 @@ const Hero = () => {
             >
               <Mail className="h-6 w-6" />
             </a>
+          </div>
+          </div>
+
+          {/* Right Side - Profile Image */}
+          <div className="flex justify-center md:justify-end animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-3xl opacity-50 animate-pulse" />
+              <div className="relative">
+                <img 
+                  src={profileImg} 
+                  alt="Mohamed Shaifudeen Profile" 
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 shadow-2xl hover:scale-105 transition-transform duration-300"
+                />
+                {/* Decorative elements */}
+                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-float" />
+                <div className="absolute -top-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
+              </div>
+            </div>
           </div>
         </div>
 
