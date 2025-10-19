@@ -116,23 +116,42 @@ All colors MUST be HSL.
 
   @keyframes float {
     0%, 100% {
-      transform: translateY(0px);
+      transform: translateY(0px) translateX(0px);
     }
-    50% {
-      transform: translateY(-20px);
+    33% {
+      transform: translateY(-20px) translateX(10px);
+    }
+    66% {
+      transform: translateY(-10px) translateX(-10px);
     }
   }
 
   .animate-glow {
-    animation: glow 2s ease-in-out infinite alternate;
+    animation: glow 3s ease-in-out infinite alternate;
   }
 
   @keyframes glow {
-    from {
-      box-shadow: 0 0 20px hsl(var(--primary) / 0.5);
+    0% {
+      box-shadow: 0 0 20px hsl(var(--primary) / 0.4), 0 0 40px hsl(var(--secondary) / 0.2);
     }
-    to {
-      box-shadow: 0 0 40px hsl(var(--primary) / 0.8);
+    50% {
+      box-shadow: 0 0 40px hsl(var(--secondary) / 0.6), 0 0 60px hsl(var(--primary) / 0.3);
+    }
+    100% {
+      box-shadow: 0 0 60px hsl(var(--primary) / 0.8), 0 0 80px hsl(var(--secondary) / 0.4);
+    }
+  }
+  
+  .animate-glow-pulse {
+    animation: glow-pulse 2s ease-in-out infinite;
+  }
+  
+  @keyframes glow-pulse {
+    0%, 100% {
+      box-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    }
+    50% {
+      box-shadow: 0 0 25px hsl(var(--primary) / 0.6), 0 0 35px hsl(var(--secondary) / 0.3);
     }
   }
 }

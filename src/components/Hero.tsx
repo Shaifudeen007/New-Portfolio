@@ -6,14 +6,33 @@ import profileImg from "@/assets/profile.jpg";
 const Hero = () => {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background Particles */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-float" />
+        <div className="absolute bottom-1/3 right-1/4 w-96 h-96 bg-secondary/25 rounded-full blur-3xl animate-float" style={{ animationDelay: '2s', animationDuration: '8s' }} />
+        <div className="absolute top-1/2 left-1/2 w-64 h-64 bg-accent/20 rounded-full blur-3xl animate-float" style={{ animationDelay: '4s', animationDuration: '10s' }} />
+        <div className="absolute top-3/4 left-1/3 w-48 h-48 bg-primary/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s', animationDuration: '7s' }} />
+      </div>
+
       {/* Background Image with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={heroBg} 
           alt="Hero Background" 
-          className="w-full h-full object-cover opacity-20"
+          className="w-full h-full object-cover opacity-10"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-background/80 via-background/90 to-background" />
+      </div>
+      
+      {/* Animated Grid Pattern */}
+      <div className="absolute inset-0 z-0 opacity-20">
+        <div 
+          className="absolute inset-0 animate-pulse" 
+          style={{
+            backgroundImage: 'radial-gradient(circle, hsl(var(--primary) / 0.15) 1px, transparent 1px)',
+            backgroundSize: '50px 50px',
+          }} 
+        />
       </div>
 
       {/* Content */}
@@ -75,17 +94,29 @@ const Hero = () => {
 
           {/* Right Side - Profile Image */}
           <div className="flex justify-center md:justify-end animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-3xl opacity-50 animate-pulse" />
+            <div className="relative group">
+              {/* Multi-layered glow effect */}
+              <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent rounded-full blur-3xl opacity-60 animate-glow" />
+              <div className="absolute inset-0 bg-gradient-to-tl from-secondary to-primary rounded-full blur-2xl opacity-40 animate-pulse" />
+              
               <div className="relative">
                 <img 
                   src={profileImg} 
                   alt="Mohamed Shaifudeen Profile" 
-                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/30 shadow-2xl hover:scale-105 transition-transform duration-300"
+                  className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-full object-cover border-4 border-primary/40 shadow-2xl group-hover:scale-105 group-hover:border-primary/60 transition-all duration-500"
+                  style={{ 
+                    boxShadow: '0 0 60px hsl(var(--primary) / 0.4), 0 0 100px hsl(var(--secondary) / 0.2)'
+                  }}
                 />
-                {/* Decorative elements */}
-                <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-primary/20 rounded-full blur-2xl animate-float" />
-                <div className="absolute -top-4 -left-4 w-32 h-32 bg-secondary/20 rounded-full blur-2xl animate-float" style={{ animationDelay: '1s' }} />
+                
+                {/* Floating decorative orbs */}
+                <div className="absolute -bottom-8 -right-8 w-32 h-32 bg-gradient-to-br from-primary to-transparent rounded-full blur-2xl opacity-70 animate-float" />
+                <div className="absolute -top-8 -left-8 w-40 h-40 bg-gradient-to-br from-secondary to-transparent rounded-full blur-2xl opacity-60 animate-float" style={{ animationDelay: '1.5s', animationDuration: '7s' }} />
+                <div className="absolute top-1/2 -right-12 w-24 h-24 bg-gradient-to-br from-accent to-transparent rounded-full blur-xl opacity-50 animate-float" style={{ animationDelay: '3s', animationDuration: '9s' }} />
+                
+                {/* Rotating ring effect */}
+                <div className="absolute inset-0 rounded-full border-2 border-primary/20 animate-spin" style={{ animationDuration: '20s' }} />
+                <div className="absolute inset-4 rounded-full border border-secondary/20 animate-spin" style={{ animationDuration: '15s', animationDirection: 'reverse' }} />
               </div>
             </div>
           </div>
