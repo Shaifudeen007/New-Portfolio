@@ -1,6 +1,7 @@
 import { ArrowDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import heroBg from "@/assets/hero-bg.jpg";
+import profileImg from "@/assets/profile.jpg";
 
 const Hero = () => {
   return (
@@ -18,6 +19,18 @@ const Hero = () => {
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
         <div className="max-w-4xl mx-auto space-y-8">
+          {/* Profile Image */}
+          <div className="flex justify-center mb-8">
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 animate-glow" />
+              <img 
+                src={profileImg} 
+                alt="Mohamed Shaifudeen Profile" 
+                className="relative w-40 h-40 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
+              />
+            </div>
+          </div>
+
           <div className="space-y-4">
             <p className="text-primary text-lg font-medium tracking-wider uppercase">
               Hi, I'm

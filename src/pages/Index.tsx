@@ -4,10 +4,12 @@ import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
+      <ThemeToggle />
       <Hero />
       <About />
       <Skills />
