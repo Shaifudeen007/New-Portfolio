@@ -18,27 +18,27 @@ const Hero = () => {
 
       {/* Content */}
       <div className="container mx-auto px-4 z-10 text-center animate-fade-in">
-        <div className="max-w-4xl mx-auto space-y-8">
+        <div className="max-w-4xl mx-auto space-y-6">
           {/* Profile Image */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-6">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-xl opacity-50 animate-glow" />
+              <div className="absolute inset-0 bg-gradient-to-br from-primary to-secondary rounded-full blur-2xl opacity-50 animate-glow" />
               <img 
                 src={profileImg} 
                 alt="Mohamed Shaifudeen Profile" 
-                className="relative w-40 h-40 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
+                className="relative w-56 h-56 md:w-64 md:h-64 rounded-full object-cover border-4 border-primary/30 shadow-2xl"
               />
             </div>
           </div>
 
-          <div className="space-y-4">
-            <p className="text-primary text-lg font-medium tracking-wider uppercase">
+          <div className="space-y-3">
+            <p className="text-primary text-sm font-medium tracking-wider uppercase">
               Hi, I'm
             </p>
-            <h1 className="text-5xl md:text-7xl font-bold gradient-text mb-4">
+            <h1 className="text-3xl md:text-5xl font-bold gradient-text mb-3">
               Mohamed Shaifudeen
             </h1>
-            <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto leading-relaxed">
               A passionate Computer Science student specializing in{" "}
               <span className="text-primary font-semibold">full-stack web development</span>,{" "}
               <span className="text-secondary font-semibold">Java programming</span>, and{" "}
