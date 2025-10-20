@@ -6,12 +6,14 @@ import Certifications from "@/components/Certifications";
 import Contact from "@/components/Contact";
 import ThemeToggle from "@/components/ThemeToggle";
 import Loader from "@/components/Loader";
+import Navigation from "@/components/Navigation";
 
 const Index = () => {
   return (
     <main className="min-h-screen">
       <Loader />
       <ThemeToggle />
+      <Navigation />
       <Hero />
       <About />
       <Skills />

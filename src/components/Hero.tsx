@@ -5,7 +5,7 @@ import profileImg from "@/assets/profile.jpg";
 
 const Hero = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0 z-0">
         <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-primary/30 rounded-full blur-3xl animate-float" />
