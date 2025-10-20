@@ -17,7 +17,7 @@ All colors MUST be HSL.
     --popover: 0 0% 100%;
     --popover-foreground: 222 47% 11%;
 
-    --primary: 189 97% 45%;
+    --primary: 220 60% 35%;
     --primary-foreground: 0 0% 100%;
 
     --secondary: 263 70% 55%;
@@ -26,7 +26,7 @@ All colors MUST be HSL.
     --muted: 210 40% 96%;
     --muted-foreground: 215 20% 40%;
 
-    --accent: 189 97% 45%;
+    --accent: 220 60% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84% 60%;
@@ -34,13 +34,13 @@ All colors MUST be HSL.
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 189 97% 45%;
+    --ring: 220 60% 35%;
 
     --radius: 0.75rem;
 
-    --gradient-primary: linear-gradient(135deg, hsl(189 97% 45%), hsl(263 70% 55%));
+    --gradient-primary: linear-gradient(135deg, hsl(220 60% 35%), hsl(263 70% 55%));
     --gradient-secondary: linear-gradient(180deg, hsl(0 0% 100%), hsl(210 40% 98%));
-    --glow-cyan: 0 0 60px hsl(189 97% 45% / 0.3);
+    --glow-cyan: 0 0 60px hsl(220 60% 35% / 0.3);
     --glow-purple: 0 0 60px hsl(263 70% 55% / 0.3);
   }
 
@@ -54,7 +54,7 @@ All colors MUST be HSL.
     --popover: 222 47% 8%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 189 97% 55%;
+    --primary: 220 60% 50%;
     --primary-foreground: 222 47% 5%;
 
     --secondary: 263 70% 60%;
@@ -63,7 +63,7 @@ All colors MUST be HSL.
     --muted: 222 47% 12%;
     --muted-foreground: 215 20% 65%;
 
-    --accent: 189 97% 55%;
+    --accent: 220 60% 50%;
     --accent-foreground: 222 47% 5%;
 
     --destructive: 0 84% 60%;
@@ -71,11 +71,11 @@ All colors MUST be HSL.
 
     --border: 222 47% 15%;
     --input: 222 47% 15%;
-    --ring: 189 97% 55%;
+    --ring: 220 60% 50%;
 
-    --gradient-primary: linear-gradient(135deg, hsl(189 97% 55%), hsl(263 70% 60%));
+    --gradient-primary: linear-gradient(135deg, hsl(220 60% 50%), hsl(263 70% 60%));
     --gradient-secondary: linear-gradient(180deg, hsl(222 47% 8%), hsl(222 47% 5%));
-    --glow-cyan: 0 0 60px hsl(189 97% 55% / 0.5);
+    --glow-cyan: 0 0 60px hsl(220 60% 50% / 0.5);
     --glow-purple: 0 0 60px hsl(263 70% 60% / 0.5);
   }
 }
