@@ -39,7 +39,7 @@ const Hero = () => {
       <div className="container mx-auto px-4 z-10 animate-fade-in">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           {/* Left Side - Text Content */}
-          <div className="space-y-6 text-left">
+          <div className="space-y-6 text-left order-2 md:order-1">
             <div className="space-y-3">
               <p className="text-primary text-sm font-medium tracking-wider uppercase animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
                 Hi, I'm
@@ -94,7 +94,7 @@ const Hero = () => {
           </div>
 
           {/* Right Side - Profile Image */}
-          <div className="flex justify-center md:justify-end animate-fade-in opacity-0" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
+          <div className="flex justify-center md:justify-end animate-fade-in opacity-0 order-1 md:order-2" style={{ animationDelay: '0.3s', animationFillMode: 'forwards' }}>
             <div className="relative group">
               {/* Multi-layered glow effect */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary via-secondary to-accent rounded-full blur-3xl opacity-60 animate-glow" />
