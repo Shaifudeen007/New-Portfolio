@@ -44,8 +44,11 @@ const Hero = () => {
               <p className="text-primary text-sm font-medium tracking-wider uppercase animate-fade-in opacity-0" style={{ animationDelay: '0.2s', animationFillMode: 'forwards' }}>
                 Hi, I'm
               </p>
-              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold gradient-text animate-fade-in opacity-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
-                Mohamed Shaifudeen
+              <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold animate-fade-in opacity-0" style={{ animationDelay: '0.4s', animationFillMode: 'forwards' }}>
+                <span className="text-foreground">Mohamed </span>
+                <span className="text-primary animate-text-glow" style={{ 
+                  textShadow: '0 0 20px hsl(var(--primary) / 0.5), 0 0 40px hsl(var(--primary) / 0.3), 0 0 60px hsl(var(--primary) / 0.2)'
+                }}>Shaifudeen</span>
               </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed animate-fade-in opacity-0" style={{ animationDelay: '0.6s', animationFillMode: 'forwards' }}>
                 A passionate Computer Science student specializing in{" "}
