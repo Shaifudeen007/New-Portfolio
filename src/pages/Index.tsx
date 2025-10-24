@@ -3,6 +3,7 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
+import VolunteerActivities from "@/components/VolunteerActivities";
 import Contact from "@/components/Contact";
 import ThemeToggle from "@/components/ThemeToggle";
 import Loader from "@/components/Loader";
@@ -19,6 +20,7 @@ const Index = () => {
       <Skills />
       <Projects />
       <Certifications />
+      <VolunteerActivities />
       <Contact />
       
       <footer className="py-8 px-4 border-t border-border">
