@@ -68,7 +68,7 @@ const Navigation = () => {
               }}
               className="text-xl font-bold gradient-text hover:opacity-80 transition-opacity"
             >
-              MS
+              MDSHAIF
             </a>
 
             {/* Desktop Navigation */}
