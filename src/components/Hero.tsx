@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { ArrowRight, ChevronDown, Github, Linkedin, Mail } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 
 const Hero = () => {
@@ -29,7 +29,7 @@ const Hero = () => {
 
         {/* Main Headline */}
         <h1 
-          className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in"
+          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-none animate-fade-in whitespace-nowrap"
           style={{ animationDelay: "0.1s" }}
         >
           Mohamed Shaifudeen
@@ -70,6 +70,38 @@ const Hero = () => {
             <span className="text-sm font-medium">About – Mohamed Shaifudeen</span>
             <ArrowRight className="w-4 h-4 text-muted-foreground group-hover:translate-x-1 transition-transform" />
           </button>
+        </div>
+
+        {/* Social Links */}
+        <div 
+          className="flex justify-center gap-4 animate-fade-in"
+          style={{ animationDelay: "0.35s" }}
+        >
+          <a
+            href="https://github.com/Shaifudeen007"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-300 text-sm"
+          >
+            <Github className="w-4 h-4" />
+            <span className="hidden sm:inline">GitHub</span>
+          </a>
+          <a
+            href="https://linkedin.com/in/mdshaifudeen"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-300 text-sm"
+          >
+            <Linkedin className="w-4 h-4" />
+            <span className="hidden sm:inline">LinkedIn</span>
+          </a>
+          <a
+            href="mailto:shaifudeen@example.com"
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-300 text-sm"
+          >
+            <Mail className="w-4 h-4" />
+            <span className="hidden sm:inline">Email</span>
+          </a>
         </div>
       </div>
 
