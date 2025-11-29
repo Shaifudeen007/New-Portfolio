@@ -29,22 +29,28 @@ const Hero = () => {
 
         {/* Main Headline */}
         <h1 
-          className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight animate-fade-in"
+          className="text-5xl md:text-7xl lg:text-8xl font-bold leading-tight animate-fade-in"
           style={{ animationDelay: "0.1s" }}
         >
-          Building bridges between
-          <br />
-          <span className="text-foreground">ideas and reality</span>
+          Mohamed Shaifudeen
         </h1>
+
+        {/* Role/Title */}
+        <p 
+          className="text-xl md:text-2xl text-primary/80 font-medium animate-fade-in"
+          style={{ animationDelay: "0.15s" }}
+        >
+          Full-Stack Developer & AI Enthusiast
+        </p>
 
         {/* Subtitle */}
         <p 
           className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed animate-fade-in"
           style={{ animationDelay: "0.2s" }}
         >
-          I'm Mohamed Shaifudeen, a Computer Science student at{" "}
+          A passionate Computer Science student at{" "}
           <span className="text-foreground font-semibold">E.G.S. Pillay Engineering College</span>
-          , where I craft full-stack applications. After hours, I explore AI and cybersecurity.
+          , crafting full-stack applications and exploring AI-driven cybersecurity solutions.
         </p>
 
         {/* Profile Link Button */}
