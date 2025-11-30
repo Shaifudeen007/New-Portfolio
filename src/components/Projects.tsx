@@ -1,41 +1,37 @@
-import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { ExternalLink, Shield, Camera, Leaf } from "lucide-react";
+import { ExternalLink, ArrowRight } from "lucide-react";
 
 const Projects = () => {
   const projects = [
     {
-      icon: Shield,
       title: "AI Driven Penetration Testing",
-      description: "Smart automation of security audits using AI",
+      description: "Smart automation of security audits using AI. A comprehensive framework that leverages machine learning to identify vulnerabilities and automate penetration testing workflows.",
       domain: "Security",
       type: "Final Year Project",
       link: "https://github.com/Shaifudeen007/Automated-penetration-testing-framework",
-      gradient: "from-primary to-primary/50"
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80"
     },
     {
-      icon: Camera,
       title: "Mobile Detection System",
-      description: "Real-time monitoring using YOLOv8 and camera feeds",
+      description: "Real-time monitoring using YOLOv8 and camera feeds. Advanced computer vision system for detecting and tracking mobile devices in restricted areas.",
       domain: "Surveillance",
       type: "Mini Project",
       link: "https://github.com/Shaifudeen007/Mini_Project_Mobile_Detection_System",
-      gradient: "from-secondary to-secondary/50"
+      image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
     },
     {
-      icon: Leaf,
       title: "Green Gourmet Website",
-      description: "Promotes healthy eating through delicious recipe ideas",
+      description: "Promotes healthy eating through delicious recipe ideas. A beautifully designed frontend application showcasing sustainable and nutritious food choices.",
       domain: "Front-end",
       type: "Project",
       link: "https://github.com/Shaifudeen007/Green-Gourmet-_Website",
-      gradient: "from-primary to-secondary"
+      image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&q=80"
     }
   ];
 
   return (
     <section id="projects" className="py-20 px-4">
-      <div className="container mx-auto max-w-6xl">
+      <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-16 animate-fade-in">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
             Featured <span className="gradient-text">Projects</span>
@@ -43,45 +39,66 @@ const Projects = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="space-y-16">
           {projects.map((project, index) => (
-            <Card 
+            <article 
               key={index}
-              className="p-6 bg-card border-border card-glow hover:border-primary transition-all duration-300 animate-fade-in flex flex-col"
+              className="animate-fade-in"
               style={{ animationDelay: `${index * 0.15}s` }}
             >
-              <div className={`mb-6 p-4 rounded-xl bg-gradient-to-br ${project.gradient} w-fit`}>
-                <project.icon className="h-8 w-8 text-background" />
+              {/* Image Container */}
+              <a 
+                href={project.link} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="block group"
+              >
+                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 aspect-[16/9] mb-6">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-background/90 backdrop-blur-sm rounded-full p-3">
+                      <ExternalLink className="h-5 w-5 text-foreground" />
+                    </div>
+                  </div>
+                </div>
+              </a>
+
+              {/* Content */}
+              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
+                <div className="flex-1">
+                  <span className="text-xs font-medium text-primary uppercase tracking-wider mb-2 block">
+                    {project.type} • {project.domain}
+                  </span>
+                  <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
+                </div>
+                
+                <div className="flex-1 md:max-w-md">
+                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                    {project.description}
+                  </p>
+                  <Button 
+                    variant="link" 
+                    className="p-0 h-auto text-primary gap-2 group/btn"
+                    asChild
+                  >
+                    <a href={project.link} target="_blank" rel="noopener noreferrer">
+                      View project
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
+                    </a>
+                  </Button>
+                </div>
               </div>
 
-              <div className="mb-3">
-                <span className="text-xs font-medium text-primary uppercase tracking-wider">
-                  {project.type}
-                </span>
-              </div>
-
-              <h3 className="text-xl font-bold mb-3">{project.title}</h3>
-              
-              <p className="text-muted-foreground mb-4 flex-grow">
-                {project.description}
-              </p>
-
-              <div className="flex items-center justify-between pt-4 border-t border-border">
-                <span className="text-sm text-muted-foreground">
-                  <span className="font-semibold text-foreground">Domain:</span> {project.domain}
-                </span>
-                <Button 
-                  variant="ghost" 
-                  size="sm"
-                  className="gap-2 hover:text-primary"
-                  asChild
-                >
-                  <a href={project.link} target="_blank" rel="noopener noreferrer">
-                    <ExternalLink className="h-4 w-4" />
-                  </a>
-                </Button>
-              </div>
-            </Card>
+              {/* Separator */}
+              {index < projects.length - 1 && (
+                <div className="mt-12 border-b border-border/50" />
+              )}
+            </article>
           ))}
         </div>
       </div>
