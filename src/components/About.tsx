@@ -1,4 +1,4 @@
-import { Code2, Lightbulb, Shield, Cpu, Github, Linkedin, Mail, MapPin } from "lucide-react";
+import { Code2, Lightbulb, Shield, Cpu, Github, Linkedin, Mail, MapPin, GraduationCap } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { useEffect, useState } from "react";
@@ -9,8 +9,30 @@ const About = () => {
 
   const navItems = [
     { id: "introduction", label: "Introduction" },
+    { id: "education", label: "Education" },
     { id: "highlights", label: "Highlights" },
     { id: "skills-focus", label: "Skills Focus" },
+  ];
+
+  const education = [
+    {
+      institution: "E.G.S. Pillay Engineering College",
+      degree: "B.E. Computer Science Engineering",
+      period: "2022 - 2026",
+      score: "83%",
+    },
+    {
+      institution: "Government Higher Secondary School",
+      degree: "Higher Secondary (12th)",
+      period: "2022",
+      score: "82%",
+    },
+    {
+      institution: "St. Jude's Matric Higher Secondary School",
+      degree: "Secondary (10th)",
+      period: "2020",
+      score: "88%",
+    },
   ];
 
   const highlights = [
@@ -167,6 +189,34 @@ const About = () => {
                 <p>
                   I'm a dedicated and curious learner, always exploring new technologies and striving to build efficient, secure, and user-friendly solutions. I'm actively seeking <span className="text-foreground font-semibold">internship or full-time opportunities</span> in software development where I can grow, contribute, and make a meaningful impact.
                 </p>
+              </div>
+            </div>
+
+            {/* Education Section */}
+            <div id="education" className="space-y-8 scroll-mt-24">
+              <h2 className="text-3xl font-bold">Education</h2>
+              
+              <div className="space-y-4">
+                {education.map((item, index) => (
+                  <div 
+                    key={index}
+                    className="flex items-start gap-4 p-6 rounded-2xl bg-card/50 backdrop-blur-sm border border-border/50 hover:border-primary/30 transition-all duration-300 group"
+                  >
+                    <div className="p-3 rounded-xl bg-primary/10 group-hover:bg-primary/20 transition-colors">
+                      <GraduationCap className="h-6 w-6 text-primary" />
+                    </div>
+                    <div className="flex-1">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-1">
+                        <h3 className="text-lg font-semibold">{item.institution}</h3>
+                        <Badge variant="secondary" className="w-fit text-xs font-medium">
+                          {item.score}
+                        </Badge>
+                      </div>
+                      <p className="text-muted-foreground">{item.degree}</p>
+                      <p className="text-sm text-muted-foreground/70 mt-1">{item.period}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
             </div>
 
