@@ -29,7 +29,7 @@ const Hero = () => {
 
         {/* Main Headline */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold leading-none animate-fade-in whitespace-nowrap"
+          className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-none animate-fade-in"
           style={{ animationDelay: "0.1s" }}
         >
           Mohamed Shaifudeen
