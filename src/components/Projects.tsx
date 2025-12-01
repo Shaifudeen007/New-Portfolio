@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight } from "lucide-react";
+import smartlockerImage from "@/assets/smartlocker.png";
 
 const Projects = () => {
   const projects = [
@@ -17,7 +18,7 @@ const Projects = () => {
       domain: "Full-Stack",
       type: "Project",
       link: "https://github.com/Shaifudeen007/smartlocker",
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+      image: smartlockerImage
     },
     {
       title: "Mobile Detection System",
