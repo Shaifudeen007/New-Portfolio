@@ -12,6 +12,14 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&q=80"
     },
     {
+      title: "Smart Storage Locker Management",
+      description: "Full-stack web application for managing smart storage lockers with user registration, authentication, and role-based access control. Built with Django REST Framework and React with JWT authentication.",
+      domain: "Full-Stack",
+      type: "Project",
+      link: "https://github.com/Shaifudeen007/smartlocker",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80"
+    },
+    {
       title: "Mobile Detection System",
       description: "Real-time monitoring using YOLOv8 and camera feeds. Advanced computer vision system for detecting and tracking mobile devices in restricted areas.",
       domain: "Surveillance",
