@@ -99,12 +99,12 @@ const About = () => {
           <div className="lg:sticky lg:top-24 lg:self-start space-y-8">
             {/* Profile Card */}
             <div className="text-center space-y-4">
-              <div className="relative mx-auto w-40 h-40">
+              <div className="relative mx-auto w-48 h-48">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-r from-primary to-secondary opacity-20 blur-xl animate-pulse" />
                 <img
                   src={profileImage}
                   alt="MD Shaif"
-                  className="relative w-40 h-40 rounded-full object-cover border-4 border-primary/20 shadow-lg"
+                  className="relative w-48 h-48 rounded-full object-cover border-4 border-primary/20 shadow-lg"
                 />
               </div>
               
