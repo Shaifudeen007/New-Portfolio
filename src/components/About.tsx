@@ -11,14 +11,7 @@ const About = () => {
     { id: "introduction", label: "Introduction" },
     { id: "education", label: "Education" },
     { id: "highlights", label: "Highlights" },
-    { id: "technical-skills", label: "Technical Skills" },
   ];
-
-  const skills = {
-    Frontend: ["HTML", "CSS", "JavaScript", "React", "Tailwind CSS"],
-    Backend: ["Java", "Python", "PHP"],
-    Others: ["Git", "C", "Problem Solving", "Algorithms"],
-  };
 
   const education = [
     {
@@ -246,28 +239,6 @@ const About = () => {
               </div>
             </div>
 
-            {/* Technical Skills Section */}
-            <div id="technical-skills" className="space-y-8 scroll-mt-24">
-              <h2 className="text-3xl font-bold">Technical Skills</h2>
-              
-              <div className="space-y-6">
-                {Object.entries(skills).map(([category, skillList]) => (
-                  <div key={category} className="space-y-3">
-                    <h3 className="text-lg font-semibold text-muted-foreground">{category}</h3>
-                    <div className="flex flex-wrap gap-2">
-                      {skillList.map((skill) => (
-                        <span
-                          key={skill}
-                          className="px-4 py-2 rounded-full bg-card border border-border/50 text-sm font-medium hover:border-primary/50 hover:bg-primary/5 transition-all duration-300"
-                        >
-                          {skill}
-                        </span>
-                      ))}
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
       </div>
