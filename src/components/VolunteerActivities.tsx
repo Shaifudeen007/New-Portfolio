@@ -1,5 +1,5 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Users, Trophy } from "lucide-react";
+import { Users, Trophy, MapPin } from "lucide-react";
 
 const VolunteerActivities = () => {
   const activities = [
@@ -14,6 +14,18 @@ const VolunteerActivities = () => {
       title: "Infxtron Symposium",
       organization: "Event Coordinator",
       description: "Successfully coordinated and completed the Infxtron Symposium, managing logistics and ensuring smooth execution."
+    },
+    {
+      icon: MapPin,
+      title: "Industrial Visit - Kerala",
+      organization: "Student Coordinator • 2025",
+      description: "Led and coordinated the entire industrial visit to Kerala as Student Coordinator, managing logistics, student safety, and ensuring a successful educational trip."
+    },
+    {
+      icon: MapPin,
+      title: "Industrial Visit - Karnataka",
+      organization: "Student Coordinator • 2024",
+      description: "Served as Student Coordinator for the Karnataka industrial visit, leading the whole trip and coordinating all aspects of the educational tour."
     }
   ];
 
