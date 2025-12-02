@@ -3,6 +3,7 @@ import About from "@/components/About";
 import Projects from "@/components/Projects";
 import Certifications from "@/components/Certifications";
 import VolunteerActivities from "@/components/VolunteerActivities";
+import CodingProfiles from "@/components/CodingProfiles";
 import Contact from "@/components/Contact";
 import ThemeToggle from "@/components/ThemeToggle";
 import Loader from "@/components/Loader";
@@ -18,6 +19,7 @@ const Index = () => {
       <About />
       <Projects />
       <Certifications />
+      <CodingProfiles />
       <VolunteerActivities />
       <Contact />
       
