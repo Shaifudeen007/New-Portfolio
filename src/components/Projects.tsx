@@ -1,4 +1,3 @@
-import { Button } from "@/components/ui/button";
 import { ExternalLink, ArrowRight } from "lucide-react";
 import smartlockerImage from "@/assets/smartlocker.png";
 
@@ -48,65 +47,51 @@ const Projects = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-secondary mx-auto rounded-full" />
         </div>
 
-        <div className="space-y-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-6">
           {projects.map((project, index) => (
             <article 
               key={index}
-              className="animate-fade-in"
-              style={{ animationDelay: `${index * 0.15}s` }}
+              className="animate-fade-in group bg-card border border-border rounded-xl overflow-hidden hover:border-primary/50 transition-all duration-300"
+              style={{ animationDelay: `${index * 0.1}s` }}
             >
-              {/* Image Container */}
               <a 
                 href={project.link} 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="block group"
+                className="block"
               >
-                <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-primary/20 to-secondary/20 aspect-[16/9] mb-6">
+                {/* Small Image */}
+                <div className="relative overflow-hidden aspect-[16/10] bg-muted">
                   <img 
                     src={project.image} 
                     alt={project.title}
                     className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute bottom-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                    <div className="bg-background/90 backdrop-blur-sm rounded-full p-3">
-                      <ExternalLink className="h-5 w-5 text-foreground" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                  <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="bg-background/90 backdrop-blur-sm rounded-full p-2">
+                      <ExternalLink className="h-4 w-4 text-foreground" />
                     </div>
                   </div>
                 </div>
-              </a>
 
-              {/* Content */}
-              <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4">
-                <div className="flex-1">
+                {/* Content */}
+                <div className="p-5">
                   <span className="text-xs font-medium text-primary uppercase tracking-wider mb-2 block">
                     {project.type} • {project.domain}
                   </span>
-                  <h3 className="text-2xl md:text-3xl font-bold">{project.title}</h3>
-                </div>
-                
-                <div className="flex-1 md:max-w-md">
-                  <p className="text-muted-foreground mb-4 leading-relaxed">
+                  <h3 className="text-lg font-bold mb-2 group-hover:text-primary transition-colors">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground line-clamp-2 mb-3">
                     {project.description}
                   </p>
-                  <Button 
-                    variant="link" 
-                    className="p-0 h-auto text-primary gap-2 group/btn"
-                    asChild
-                  >
-                    <a href={project.link} target="_blank" rel="noopener noreferrer">
-                      View project
-                      <ArrowRight className="h-4 w-4 transition-transform group-hover/btn:translate-x-1" />
-                    </a>
-                  </Button>
+                  <span className="inline-flex items-center text-sm text-primary gap-1.5">
+                    View project
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </span>
                 </div>
-              </div>
-
-              {/* Separator */}
-              {index < projects.length - 1 && (
-                <div className="mt-12 border-b border-border/50" />
-              )}
+              </a>
             </article>
           ))}
         </div>
