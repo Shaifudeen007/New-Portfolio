@@ -5,21 +5,48 @@ import { Badge } from "@/components/ui/badge";
 const Internships = () => {
   const internships = [
     {
-      company: "Company Name",
-      role: "Software Development Intern",
-      duration: "Jan 2024 - Mar 2024",
-      location: "Chennai, India",
-      description: "Worked on developing web applications using React and Node.js. Collaborated with the team to implement new features and fix bugs.",
-      skills: ["React", "Node.js", "MongoDB", "Git"],
+      company: "Ratgle Technologies",
+      role: "Web Developer Intern",
+      duration: "15 Days",
+      location: "Trichy, India",
+      description: "Completed a 15-day internship gaining hands-on industry experience and practical technical skills in web development.",
+      skills: ["HTML", "CSS", "JavaScript", "Web Development"],
       link: "#"
     },
     {
-      company: "Another Company",
-      role: "Web Development Intern",
-      duration: "Jun 2023 - Aug 2023",
-      location: "Remote",
-      description: "Built responsive web interfaces and integrated APIs. Participated in code reviews and agile development processes.",
-      skills: ["HTML", "CSS", "JavaScript", "REST APIs"],
+      company: "Google for Developers | AICTE & EduSkills",
+      role: "AI-ML Virtual Intern",
+      duration: "10 Weeks",
+      location: "Virtual",
+      description: "Successfully completed a 10-week AI-ML Virtual Internship supported by Google for Developers under AICTE & EduSkills.",
+      skills: ["Machine Learning", "Artificial Intelligence", "Python", "Data Science"],
+      link: "#"
+    },
+    {
+      company: "Zscaler | AICTE & EduSkills",
+      role: "Networking Virtual Intern",
+      duration: "10 Weeks",
+      location: "Virtual",
+      description: "Completed a 10-week Networking Virtual Internship supported by Zscaler through AICTE & EduSkills.",
+      skills: ["Networking", "Cybersecurity", "Cloud Security", "Zero Trust"],
+      link: "#"
+    },
+    {
+      company: "EduSkills Academy",
+      role: "Python Full Stack Developer Intern",
+      duration: "Virtual Internship",
+      location: "Virtual",
+      description: "Successfully finished a Python Full Stack Developer Virtual Internship under EduSkills Academy, gaining full-stack development skills.",
+      skills: ["Python", "Django", "Flask", "Full Stack Development"],
+      link: "#"
+    },
+    {
+      company: "Google for Developers | AICTE & EduSkills",
+      role: "Android Developer Virtual Intern",
+      duration: "10 Weeks",
+      location: "Virtual",
+      description: "Completed a 10-week Android Developer Virtual Internship supported by Google for Developers under AICTE & EduSkills.",
+      skills: ["Android", "Kotlin", "Java", "Mobile Development"],
       link: "#"
     }
   ];
