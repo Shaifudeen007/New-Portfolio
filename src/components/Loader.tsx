@@ -1,265 +1,235 @@
 import { useEffect, useState } from "react";
 
 const Loader = () => {
-  const [progress, setProgress] = useState(0);
+  const [phase, setPhase] = useState(0);
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setProgress((prev) => {
-        if (prev >= 100) {
-          clearInterval(timer);
-          setTimeout(() => setIsVisible(false), 600);
-          return 100;
-        }
-        return prev + 1.5;
-      });
-    }, 25);
+    // Phase transitions for cinematic effect
+    const phases = [
+      { delay: 0 },      // Initial black
+      { delay: 500 },    // Aperture opens
+      { delay: 1500 },   // Name reveals
+      { delay: 3000 },   // Subtitle
+      { delay: 4500 },   // Final fade
+    ];
 
-    return () => clearInterval(timer);
+    phases.forEach((p, i) => {
+      setTimeout(() => setPhase(i), p.delay);
+    });
+
+    setTimeout(() => setIsVisible(false), 5000);
   }, []);
 
   if (!isVisible) return null;
 
-  const letters = "LOADING".split("");
-
   return (
     <div 
-      className="fixed inset-0 z-50 bg-background flex items-center justify-center overflow-hidden"
+      className="fixed inset-0 z-50 bg-black flex items-center justify-center overflow-hidden"
       style={{ 
-        animation: progress === 100 ? 'fade-out 0.6s ease-out forwards' : 'none',
-        animationDelay: '0.4s'
+        opacity: phase >= 4 ? 0 : 1,
+        transition: 'opacity 0.8s ease-out'
       }}
     >
-      {/* Gradient mesh background */}
-      <div className="absolute inset-0">
-        <div 
-          className="absolute top-1/4 -left-1/4 w-[600px] h-[600px] rounded-full opacity-20 blur-3xl"
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--primary)) 0%, transparent 70%)',
-            animation: 'float 8s ease-in-out infinite'
-          }}
-        />
-        <div 
-          className="absolute bottom-1/4 -right-1/4 w-[500px] h-[500px] rounded-full opacity-15 blur-3xl"
-          style={{
-            background: 'radial-gradient(circle, hsl(var(--secondary)) 0%, transparent 70%)',
-            animation: 'float 6s ease-in-out infinite reverse'
-          }}
-        />
-      </div>
-
-      {/* Scan lines effect */}
+      {/* Film grain overlay */}
       <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
+        className="absolute inset-0 opacity-[0.08] pointer-events-none mix-blend-overlay"
         style={{
-          backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, hsl(var(--foreground)) 2px, hsl(var(--foreground)) 4px)',
-          animation: 'scanlines 8s linear infinite'
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%' height='100%' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          animation: 'grain 0.5s steps(1) infinite'
         }}
       />
 
-      <div className="relative z-10 flex flex-col items-center gap-12">
-        {/* Main 3D Cube Loader */}
-        <div className="relative w-40 h-40 perspective-1000">
-          {/* Rotating cube */}
-          <div 
-            className="absolute inset-0"
+      {/* Letterbox bars */}
+      <div 
+        className="absolute top-0 left-0 right-0 bg-black z-20"
+        style={{
+          height: phase >= 1 ? '12%' : '50%',
+          transition: 'height 1.2s cubic-bezier(0.65, 0, 0.35, 1)'
+        }}
+      />
+      <div 
+        className="absolute bottom-0 left-0 right-0 bg-black z-20"
+        style={{
+          height: phase >= 1 ? '12%' : '50%',
+          transition: 'height 1.2s cubic-bezier(0.65, 0, 0.35, 1)'
+        }}
+      />
+
+      {/* Camera aperture effect */}
+      <div 
+        className="absolute inset-0 flex items-center justify-center z-10"
+        style={{
+          opacity: phase >= 1 ? 0 : 1,
+          transition: 'opacity 0.8s ease-out',
+          transitionDelay: '0.8s'
+        }}
+      >
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute w-[200%] h-[200%] bg-black origin-center"
             style={{
-              transformStyle: 'preserve-3d',
-              animation: 'rotateCube 4s ease-in-out infinite'
+              clipPath: 'polygon(50% 50%, 100% 0%, 100% 50%)',
+              transform: `rotate(${i * 45}deg)`,
+            }}
+          />
+        ))}
+      </div>
+
+      {/* Vignette */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-10"
+        style={{
+          background: 'radial-gradient(ellipse at center, transparent 0%, transparent 40%, rgba(0,0,0,0.8) 100%)'
+        }}
+      />
+
+      {/* Main content */}
+      <div className="relative z-10 flex flex-col items-center gap-6">
+        {/* Horizontal line above */}
+        <div 
+          className="h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"
+          style={{
+            width: phase >= 2 ? '300px' : '0px',
+            transition: 'width 1s ease-out',
+            transitionDelay: '0.2s'
+          }}
+        />
+
+        {/* Name with typewriter reveal */}
+        <div className="overflow-hidden">
+          <h1 
+            className="text-5xl md:text-7xl font-light tracking-[0.4em] text-white uppercase"
+            style={{
+              fontFamily: 'Georgia, serif',
+              opacity: phase >= 2 ? 1 : 0,
+              transform: phase >= 2 ? 'translateY(0)' : 'translateY(100%)',
+              transition: 'all 1s cubic-bezier(0.65, 0, 0.35, 1)',
+              transitionDelay: '0.3s',
+              textShadow: '0 0 60px rgba(255,255,255,0.3)'
             }}
           >
-            {/* Cube faces */}
-            {[...Array(6)].map((_, i) => {
-              const transforms = [
-                'rotateY(0deg) translateZ(40px)',
-                'rotateY(180deg) translateZ(40px)',
-                'rotateY(90deg) translateZ(40px)',
-                'rotateY(-90deg) translateZ(40px)',
-                'rotateX(90deg) translateZ(40px)',
-                'rotateX(-90deg) translateZ(40px)'
-              ];
-              return (
-                <div
-                  key={i}
-                  className="absolute inset-[30px] border border-primary/30"
-                  style={{
-                    transform: transforms[i],
-                    background: `linear-gradient(135deg, hsl(var(--primary) / 0.1), hsl(var(--secondary) / 0.05))`,
-                    backdropFilter: 'blur(4px)'
-                  }}
-                />
-              );
-            })}
-          </div>
+            Shaif
+          </h1>
+        </div>
 
-          {/* Orbiting rings */}
-          <div 
-            className="absolute inset-0"
-            style={{ animation: 'spin 3s linear infinite' }}
+        {/* Subtitle with fade */}
+        <div className="overflow-hidden">
+          <p 
+            className="text-sm md:text-base tracking-[0.5em] text-white/50 uppercase font-light"
+            style={{
+              opacity: phase >= 3 ? 1 : 0,
+              transform: phase >= 3 ? 'translateY(0)' : 'translateY(30px)',
+              transition: 'all 0.8s ease-out',
+              transitionDelay: '0.2s'
+            }}
           >
-            <div className="absolute inset-2 border border-dashed border-primary/40 rounded-full" />
-          </div>
-          <div 
-            className="absolute inset-0"
-            style={{ animation: 'spin 5s linear infinite reverse' }}
-          >
-            <div className="absolute inset-6 border border-dotted border-secondary/40 rounded-full" />
-          </div>
+            Developer & Creator
+          </p>
+        </div>
 
-          {/* Center percentage with glitch */}
-          <div className="absolute inset-0 flex items-center justify-center">
-            <div className="relative">
-              <span 
-                className="text-4xl font-black tracking-tighter"
-                style={{
-                  background: 'linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  textShadow: '0 0 30px hsl(var(--primary) / 0.5)'
-                }}
-              >
-                {Math.round(progress)}
-              </span>
-              {/* Glitch layers */}
-              <span 
-                className="absolute inset-0 text-4xl font-black tracking-tighter text-primary/30"
-                style={{
-                  animation: 'glitch1 0.3s ease-in-out infinite',
-                  clipPath: 'inset(40% 0 40% 0)'
-                }}
-              >
-                {Math.round(progress)}
-              </span>
-            </div>
-          </div>
+        {/* Horizontal line below */}
+        <div 
+          className="h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"
+          style={{
+            width: phase >= 2 ? '300px' : '0px',
+            transition: 'width 1s ease-out',
+            transitionDelay: '0.4s'
+          }}
+        />
 
-          {/* Corner accents */}
-          {[0, 1, 2, 3].map((i) => (
+        {/* Loading dots */}
+        <div 
+          className="flex gap-2 mt-8"
+          style={{
+            opacity: phase >= 2 && phase < 4 ? 1 : 0,
+            transition: 'opacity 0.5s ease'
+          }}
+        >
+          {[0, 1, 2].map((i) => (
             <div
               key={i}
-              className="absolute w-4 h-4"
+              className="w-1.5 h-1.5 bg-white/40 rounded-full"
               style={{
-                top: i < 2 ? '-8px' : 'auto',
-                bottom: i >= 2 ? '-8px' : 'auto',
-                left: i % 2 === 0 ? '-8px' : 'auto',
-                right: i % 2 === 1 ? '-8px' : 'auto',
-              }}
-            >
-              <div 
-                className="w-full h-0.5 bg-gradient-to-r from-primary to-transparent"
-                style={{
-                  transform: i % 2 === 1 ? 'rotate(180deg)' : 'none',
-                  opacity: progress > i * 25 ? 1 : 0.2,
-                  transition: 'opacity 0.5s ease'
-                }}
-              />
-              <div 
-                className="w-0.5 h-full bg-gradient-to-b from-primary to-transparent absolute top-0"
-                style={{
-                  left: i % 2 === 0 ? 0 : 'auto',
-                  right: i % 2 === 1 ? 0 : 'auto',
-                  opacity: progress > i * 25 ? 1 : 0.2,
-                  transition: 'opacity 0.5s ease'
-                }}
-              />
-            </div>
-          ))}
-        </div>
-
-        {/* Animated letter reveal */}
-        <div className="flex items-center gap-1">
-          {letters.map((letter, i) => (
-            <span
-              key={i}
-              className="text-2xl font-bold tracking-[0.3em] transition-all duration-500"
-              style={{
-                color: progress > (i + 1) * 12 ? 'hsl(var(--primary))' : 'hsl(var(--muted-foreground) / 0.3)',
-                transform: progress > (i + 1) * 12 ? 'translateY(0)' : 'translateY(10px)',
-                textShadow: progress > (i + 1) * 12 ? '0 0 20px hsl(var(--primary) / 0.5)' : 'none'
-              }}
-            >
-              {letter}
-            </span>
-          ))}
-        </div>
-
-        {/* Progress bar with segments */}
-        <div className="relative w-72">
-          <div className="flex gap-1">
-            {[...Array(20)].map((_, i) => (
-              <div
-                key={i}
-                className="flex-1 h-2 rounded-sm transition-all duration-200"
-                style={{
-                  background: progress > i * 5 
-                    ? `linear-gradient(135deg, hsl(var(--primary)), hsl(var(--secondary)))` 
-                    : 'hsl(var(--muted) / 0.3)',
-                  transform: progress > i * 5 ? 'scaleY(1)' : 'scaleY(0.6)',
-                  boxShadow: progress > i * 5 ? '0 0 10px hsl(var(--primary) / 0.5)' : 'none'
-                }}
-              />
-            ))}
-          </div>
-          
-          {/* Status text */}
-          <div className="mt-4 text-center">
-            <p className="text-xs font-mono text-muted-foreground uppercase tracking-widest">
-              {progress < 25 && "Initializing systems"}
-              {progress >= 25 && progress < 50 && "Loading components"}
-              {progress >= 50 && progress < 75 && "Preparing experience"}
-              {progress >= 75 && progress < 100 && "Almost there"}
-              {progress >= 100 && "Welcome"}
-              <span className="inline-block ml-1 animate-pulse">_</span>
-            </p>
-          </div>
-        </div>
-
-        {/* DNA helix decoration */}
-        <div className="absolute -bottom-20 flex gap-4 opacity-30">
-          {[...Array(12)].map((_, i) => (
-            <div
-              key={i}
-              className="w-1 bg-gradient-to-t from-transparent via-primary to-transparent rounded-full"
-              style={{
-                height: `${30 + Math.sin(i * 0.5) * 20}px`,
-                animation: 'wave 1.5s ease-in-out infinite',
-                animationDelay: `${i * 0.1}s`
+                animation: 'pulse 1.5s ease-in-out infinite',
+                animationDelay: `${i * 0.2}s`
               }}
             />
           ))}
         </div>
       </div>
 
-      {/* Inline styles for custom animations */}
+      {/* Corner frames */}
+      <div className="absolute top-[15%] left-[5%] w-16 h-16 z-10"
+        style={{
+          opacity: phase >= 2 ? 0.4 : 0,
+          transition: 'opacity 0.8s ease',
+          transitionDelay: '0.6s'
+        }}
+      >
+        <div className="absolute top-0 left-0 w-full h-px bg-white/40" />
+        <div className="absolute top-0 left-0 h-full w-px bg-white/40" />
+      </div>
+      <div className="absolute top-[15%] right-[5%] w-16 h-16 z-10"
+        style={{
+          opacity: phase >= 2 ? 0.4 : 0,
+          transition: 'opacity 0.8s ease',
+          transitionDelay: '0.7s'
+        }}
+      >
+        <div className="absolute top-0 right-0 w-full h-px bg-white/40" />
+        <div className="absolute top-0 right-0 h-full w-px bg-white/40" />
+      </div>
+      <div className="absolute bottom-[15%] left-[5%] w-16 h-16 z-10"
+        style={{
+          opacity: phase >= 2 ? 0.4 : 0,
+          transition: 'opacity 0.8s ease',
+          transitionDelay: '0.8s'
+        }}
+      >
+        <div className="absolute bottom-0 left-0 w-full h-px bg-white/40" />
+        <div className="absolute bottom-0 left-0 h-full w-px bg-white/40" />
+      </div>
+      <div className="absolute bottom-[15%] right-[5%] w-16 h-16 z-10"
+        style={{
+          opacity: phase >= 2 ? 0.4 : 0,
+          transition: 'opacity 0.8s ease',
+          transitionDelay: '0.9s'
+        }}
+      >
+        <div className="absolute bottom-0 right-0 w-full h-px bg-white/40" />
+        <div className="absolute bottom-0 right-0 h-full w-px bg-white/40" />
+      </div>
+
+      {/* Film flicker effect */}
+      <div 
+        className="absolute inset-0 bg-white/[0.02] pointer-events-none z-30"
+        style={{
+          animation: 'flicker 0.15s infinite'
+        }}
+      />
+
       <style>{`
-        @keyframes rotateCube {
-          0%, 100% { transform: rotateX(0deg) rotateY(0deg); }
-          25% { transform: rotateX(90deg) rotateY(90deg); }
-          50% { transform: rotateX(180deg) rotateY(180deg); }
-          75% { transform: rotateX(270deg) rotateY(270deg); }
+        @keyframes grain {
+          0%, 100% { transform: translate(0, 0); }
+          10% { transform: translate(-5%, -10%); }
+          20% { transform: translate(-15%, 5%); }
+          30% { transform: translate(7%, -25%); }
+          40% { transform: translate(-5%, 25%); }
+          50% { transform: translate(-15%, 10%); }
+          60% { transform: translate(15%, 0%); }
+          70% { transform: translate(0%, 15%); }
+          80% { transform: translate(3%, 35%); }
+          90% { transform: translate(-10%, 10%); }
         }
-        @keyframes glitch1 {
-          0%, 100% { transform: translateX(0); }
-          20% { transform: translateX(-2px); }
-          40% { transform: translateX(2px); }
-          60% { transform: translateX(-1px); }
-          80% { transform: translateX(1px); }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.3; transform: scale(1); }
+          50% { opacity: 1; transform: scale(1.2); }
         }
-        @keyframes float {
-          0%, 100% { transform: translate(0, 0) scale(1); }
-          50% { transform: translate(30px, -30px) scale(1.1); }
-        }
-        @keyframes wave {
-          0%, 100% { transform: scaleY(1); opacity: 0.3; }
-          50% { transform: scaleY(1.5); opacity: 0.6; }
-        }
-        @keyframes scanlines {
-          0% { transform: translateY(0); }
-          100% { transform: translateY(4px); }
-        }
-        .perspective-1000 {
-          perspective: 1000px;
+        @keyframes flicker {
+          0%, 100% { opacity: 0; }
+          50% { opacity: 1; }
         }
       `}</style>
     </div>
