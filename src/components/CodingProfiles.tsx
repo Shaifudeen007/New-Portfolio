@@ -4,15 +4,15 @@ import { ExternalLink, Code2, Trophy } from "lucide-react";
 const CodingProfiles = () => {
   const profiles = [
     {
-      platform: "HackerRank",
+      platform: "Skillrack",
       icon: Trophy,
       username: "Mdshaif",
-      link: "https://www.hackerrank.com/profile/Mdshaif",
-      color: "from-green-500 to-emerald-600",
+      link: "https://www.skillrack.com/profile/Mdshaif",
+      color: "from-blue-500 to-cyan-600",
       skills: [
         { name: "Problem Solving", stars: 5 },
         { name: "Python", stars: 4 },
-        { name: "SQL", stars: 4 },
+        { name: "C Programming", stars: 4 },
       ],
     },
     {
