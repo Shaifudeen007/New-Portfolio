@@ -10,16 +10,36 @@ import railway from "@/assets/gallery/railway.jpg";
 import bridge from "@/assets/gallery/bridge.jpg";
 import lakeside from "@/assets/gallery/lakeside.jpg";
 import park from "@/assets/gallery/park.jpg";
+import vintageTruck from "@/assets/gallery/vintage-truck.jpg";
+import carPose from "@/assets/gallery/car-pose.jpg";
+import forestSmile from "@/assets/gallery/forest-smile.jpg";
+import greenHills from "@/assets/gallery/green-hills.jpg";
+import harbor from "@/assets/gallery/harbor.jpg";
+import beachBlue from "@/assets/gallery/beach-blue.jpg";
+import mosqueNight from "@/assets/gallery/mosque-night.jpg";
+import sunnyField from "@/assets/gallery/sunny-field.jpg";
+import neonGreen from "@/assets/gallery/neon-green.jpg";
+import armsCrossed from "@/assets/gallery/arms-crossed.jpg";
 
 const photos = [
-  { id: 1, src: beachPalm, title: "Beach Vibes", orientation: "portrait" },
-  { id: 2, src: traditional, title: "Traditional Day", orientation: "portrait" },
-  { id: 3, src: oceanWaves, title: "Ocean Waves", orientation: "portrait" },
-  { id: 4, src: temple, title: "Temple Visit", orientation: "portrait" },
-  { id: 5, src: railway, title: "Railway Tracks", orientation: "portrait" },
-  { id: 6, src: bridge, title: "Bridge View", orientation: "portrait" },
-  { id: 8, src: lakeside, title: "Lakeside Peace", orientation: "portrait" },
-  { id: 9, src: park, title: "Park Day", orientation: "portrait" },
+  { id: 1, src: beachPalm, title: "Beach Vibes" },
+  { id: 2, src: traditional, title: "Traditional Day" },
+  { id: 3, src: oceanWaves, title: "Ocean Waves" },
+  { id: 4, src: temple, title: "Temple Visit" },
+  { id: 5, src: railway, title: "Railway Tracks" },
+  { id: 6, src: bridge, title: "Bridge View" },
+  { id: 7, src: lakeside, title: "Lakeside Peace" },
+  { id: 8, src: park, title: "Park Day" },
+  { id: 9, src: vintageTruck, title: "Vintage Vibes" },
+  { id: 10, src: carPose, title: "Road Trip" },
+  { id: 11, src: forestSmile, title: "Forest Joy" },
+  { id: 12, src: greenHills, title: "Green Hills" },
+  { id: 13, src: harbor, title: "Harbor View" },
+  { id: 14, src: beachBlue, title: "Blue Beach" },
+  { id: 15, src: mosqueNight, title: "Night Glow" },
+  { id: 16, src: sunnyField, title: "Sunny Day" },
+  { id: 17, src: neonGreen, title: "Neon Nights" },
+  { id: 18, src: armsCrossed, title: "Street Style" },
 ];
 
 const LifeInFrame = () => {
