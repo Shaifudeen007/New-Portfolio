@@ -27,10 +27,6 @@ const photos = [
 const LifeInFrame = () => {
   const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
 
-  // Split photos into two columns for masonry effect
-  const leftColumn = photos.filter((_, i) => i % 2 === 0);
-  const rightColumn = photos.filter((_, i) => i % 2 === 1);
-
   return (
     <section id="life-in-frame" className="py-20 px-4 bg-muted/30">
       <div className="container mx-auto max-w-4xl">
@@ -45,45 +41,27 @@ const LifeInFrame = () => {
           </p>
         </div>
 
-        {/* Masonry Grid */}
-        <div className="flex gap-4">
-          {/* Left Column */}
-          <div className="flex-1 flex flex-col gap-4">
-            {leftColumn.map((photo, index) => (
-              <div
-                key={photo.id}
-                onClick={() => setSelectedPhoto(photo)}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                <img
-                  src={photo.src}
-                  alt={photo.title}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+        {/* Micro Grid */}
+        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-5 gap-2 sm:gap-3">
+          {photos.map((photo, index) => (
+            <div
+              key={photo.id}
+              onClick={() => setSelectedPhoto(photo)}
+              className="group relative aspect-square overflow-hidden rounded-lg cursor-pointer bg-muted"
+              style={{ animationDelay: `${index * 50}ms` }}
+            >
+              <img
+                src={photo.src}
+                alt={photo.title}
+                className="w-full h-full object-cover transition-all duration-300 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/30 transition-all duration-300 flex items-center justify-center">
+                <span className="text-white text-xs font-medium opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  View
+                </span>
               </div>
-            ))}
-          </div>
-          
-          {/* Right Column */}
-          <div className="flex-1 flex flex-col gap-4 mt-8">
-            {rightColumn.map((photo, index) => (
-              <div
-                key={photo.id}
-                onClick={() => setSelectedPhoto(photo)}
-                className="group relative overflow-hidden rounded-2xl cursor-pointer"
-                style={{ animationDelay: `${(index + leftColumn.length) * 100}ms` }}
-              >
-                <img
-                  src={photo.src}
-                  alt={photo.title}
-                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
         {/* Lightbox Dialog */}
