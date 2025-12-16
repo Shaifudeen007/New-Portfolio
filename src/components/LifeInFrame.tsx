@@ -7,7 +7,6 @@ import traditional from "@/assets/gallery/traditional.jpg";
 import oceanWaves from "@/assets/gallery/ocean-waves.jpg";
 import temple from "@/assets/gallery/temple.jpg";
 import railway from "@/assets/gallery/railway.jpg";
-import casual from "@/assets/gallery/casual.jpg";
 import bridge from "@/assets/gallery/bridge.jpg";
 import lakeside from "@/assets/gallery/lakeside.jpg";
 import park from "@/assets/gallery/park.jpg";
@@ -18,8 +17,7 @@ const photos = [
   { id: 3, src: oceanWaves, title: "Ocean Waves", orientation: "portrait" },
   { id: 4, src: temple, title: "Temple Visit", orientation: "portrait" },
   { id: 5, src: railway, title: "Railway Tracks", orientation: "portrait" },
-  { id: 6, src: casual, title: "Casual Moments", orientation: "portrait" },
-  { id: 7, src: bridge, title: "Bridge View", orientation: "portrait" },
+  { id: 6, src: bridge, title: "Bridge View", orientation: "portrait" },
   { id: 8, src: lakeside, title: "Lakeside Peace", orientation: "portrait" },
   { id: 9, src: park, title: "Park Day", orientation: "portrait" },
 ];
