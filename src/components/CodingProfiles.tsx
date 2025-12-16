@@ -6,8 +6,8 @@ const CodingProfiles = () => {
     {
       platform: "HackerRank",
       icon: Trophy,
-      username: "Your Username",
-      link: "https://www.hackerrank.com/profile/your_username",
+      username: "Mdshaif",
+      link: "https://www.hackerrank.com/profile/Mdshaif",
       color: "from-green-500 to-emerald-600",
       skills: [
         { name: "Problem Solving", stars: 5 },
