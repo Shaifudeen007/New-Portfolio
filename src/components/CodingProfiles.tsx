@@ -4,26 +4,26 @@ import { ExternalLink, Code2, Trophy } from "lucide-react";
 const CodingProfiles = () => {
   const profiles = [
     {
-      platform: "Skillrack",
+      platform: "HackerRank",
       icon: Trophy,
       username: "Mdshaif",
-      link: "https://www.skillrack.com/profile/Mdshaif",
-      color: "from-blue-500 to-cyan-600",
+      link: "https://www.hackerrank.com/profile/Mdshaif",
+      color: "from-green-500 to-emerald-600",
       skills: [
         { name: "Problem Solving", stars: 5 },
         { name: "Python", stars: 4 },
-        { name: "C Programming", stars: 4 },
+        { name: "SQL", stars: 4 },
       ],
     },
     {
-      platform: "LeetCode",
+      platform: "Skillrack",
       icon: Code2,
-      username: "Your Username",
-      link: "https://leetcode.com/your_username",
-      color: "from-orange-500 to-amber-600",
+      username: "Mdshaif",
+      link: "https://www.skillrack.com/profile/Mdshaif",
+      color: "from-blue-500 to-cyan-600",
       stats: [
         { label: "Problems Solved", value: "100+" },
-        { label: "Contest Rating", value: "1500+" },
+        { label: "Points Earned", value: "5000+" },
       ],
     },
   ];
