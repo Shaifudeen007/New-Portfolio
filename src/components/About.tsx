@@ -104,7 +104,7 @@ const About = () => {
                 <img
                   src={profileImage}
                   alt="MD Shaif"
-                  className="relative w-48 h-48 rounded-full object-cover object-top scale-[1.3] border-4 border-primary/20 shadow-lg"
+                  className="relative w-48 h-48 rounded-full object-cover object-top border-4 border-primary/20 shadow-lg"
                 />
               </div>
               
