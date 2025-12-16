@@ -1,49 +1,40 @@
-import { Camera } from "lucide-react";
+import { Camera, X } from "lucide-react";
+import { useState } from "react";
+import { Dialog, DialogContent } from "@/components/ui/dialog";
+
+import beachPalm from "@/assets/gallery/beach-palm.jpg";
+import traditional from "@/assets/gallery/traditional.jpg";
+import oceanWaves from "@/assets/gallery/ocean-waves.jpg";
+import temple from "@/assets/gallery/temple.jpg";
+import railway from "@/assets/gallery/railway.jpg";
+import casual from "@/assets/gallery/casual.jpg";
+import bridge from "@/assets/gallery/bridge.jpg";
+import lakeside from "@/assets/gallery/lakeside.jpg";
+import park from "@/assets/gallery/park.jpg";
 
 const photos = [
-  {
-    id: 1,
-    title: "Nature Walk",
-    category: "Nature",
-    placeholder: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=400&h=300&fit=crop"
-  },
-  {
-    id: 2,
-    title: "City Lights",
-    category: "Urban",
-    placeholder: "https://images.unsplash.com/photo-1519501025264-65ba15a82390?w=400&h=300&fit=crop"
-  },
-  {
-    id: 3,
-    title: "Golden Hour",
-    category: "Landscape",
-    placeholder: "https://images.unsplash.com/photo-1495616811223-4d98c6e9c869?w=400&h=300&fit=crop"
-  },
-  {
-    id: 4,
-    title: "Quiet Moments",
-    category: "Lifestyle",
-    placeholder: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?w=400&h=300&fit=crop"
-  },
-  {
-    id: 5,
-    title: "Adventures",
-    category: "Travel",
-    placeholder: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=400&h=300&fit=crop"
-  },
-  {
-    id: 6,
-    title: "Creative Space",
-    category: "Work",
-    placeholder: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=400&h=300&fit=crop"
-  }
+  { id: 1, src: beachPalm, title: "Beach Vibes", orientation: "portrait" },
+  { id: 2, src: traditional, title: "Traditional Day", orientation: "portrait" },
+  { id: 3, src: oceanWaves, title: "Ocean Waves", orientation: "portrait" },
+  { id: 4, src: temple, title: "Temple Visit", orientation: "portrait" },
+  { id: 5, src: railway, title: "Railway Tracks", orientation: "portrait" },
+  { id: 6, src: casual, title: "Casual Moments", orientation: "portrait" },
+  { id: 7, src: bridge, title: "Bridge View", orientation: "portrait" },
+  { id: 8, src: lakeside, title: "Lakeside Peace", orientation: "portrait" },
+  { id: 9, src: park, title: "Park Day", orientation: "portrait" },
 ];
 
 const LifeInFrame = () => {
+  const [selectedPhoto, setSelectedPhoto] = useState<typeof photos[0] | null>(null);
+
+  // Split photos into two columns for masonry effect
+  const leftColumn = photos.filter((_, i) => i % 2 === 0);
+  const rightColumn = photos.filter((_, i) => i % 2 === 1);
+
   return (
     <section id="life-in-frame" className="py-20 px-4 bg-muted/30">
-      <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+      <div className="container mx-auto max-w-4xl">
+        <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 text-primary mb-4">
             <Camera className="w-4 h-4" />
             <span className="text-sm font-medium">Gallery</span>
@@ -54,27 +45,65 @@ const LifeInFrame = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {photos.map((photo, index) => (
-            <div
-              key={photo.id}
-              className="group relative overflow-hidden rounded-xl bg-card border border-border shadow-sm hover:shadow-xl transition-all duration-500"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
+        {/* Masonry Grid */}
+        <div className="flex gap-4">
+          {/* Left Column */}
+          <div className="flex-1 flex flex-col gap-4">
+            {leftColumn.map((photo, index) => (
+              <div
+                key={photo.id}
+                onClick={() => setSelectedPhoto(photo)}
+                className="group relative overflow-hidden rounded-2xl cursor-pointer"
+                style={{ animationDelay: `${index * 100}ms` }}
+              >
                 <img
-                  src={photo.placeholder}
+                  src={photo.src}
                   alt={photo.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
                 />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-background/90 via-background/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 flex flex-col justify-end p-4">
-                <span className="text-xs font-medium text-primary mb-1">{photo.category}</span>
-                <h3 className="text-lg font-semibold text-foreground">{photo.title}</h3>
+            ))}
+          </div>
+          
+          {/* Right Column */}
+          <div className="flex-1 flex flex-col gap-4 mt-8">
+            {rightColumn.map((photo, index) => (
+              <div
+                key={photo.id}
+                onClick={() => setSelectedPhoto(photo)}
+                className="group relative overflow-hidden rounded-2xl cursor-pointer"
+                style={{ animationDelay: `${(index + leftColumn.length) * 100}ms` }}
+              >
+                <img
+                  src={photo.src}
+                  alt={photo.title}
+                  className="w-full h-auto object-cover transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
+
+        {/* Lightbox Dialog */}
+        <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
+          <DialogContent className="max-w-4xl w-[95vw] p-0 bg-transparent border-none">
+            <button
+              onClick={() => setSelectedPhoto(null)}
+              className="absolute -top-12 right-0 text-white hover:text-white/80 transition-colors z-50"
+            >
+              <X className="w-8 h-8" />
+            </button>
+            {selectedPhoto && (
+              <img
+                src={selectedPhoto.src}
+                alt={selectedPhoto.title}
+                className="w-full h-auto max-h-[85vh] object-contain rounded-lg"
+              />
+            )}
+          </DialogContent>
+        </Dialog>
       </div>
     </section>
   );
