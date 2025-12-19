@@ -19,7 +19,7 @@ const CodingProfiles = () => {
       platform: "Skillrack",
       icon: Code2,
       username: "Mdshaif",
-      link: "https://www.skillrack.com/profile/Mdshaif",
+      link: "http://www.skillrack.com/faces/resume.xhtml?id=444465&key=8df518e900bc70569f665d40ee6d0e76e73ff690",
       color: "from-blue-500 to-cyan-600",
       stats: [
         { label: "Problems Solved", value: "100+" },
