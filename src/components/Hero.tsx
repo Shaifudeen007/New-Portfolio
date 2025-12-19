@@ -1,4 +1,4 @@
-import { ArrowRight, ChevronDown, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import profileImg from "@/assets/profile.jpg";
 
 const Hero = () => {
@@ -101,6 +101,14 @@ const Hero = () => {
           >
             <Mail className="w-4 h-4" />
             <span className="hidden sm:inline">Email</span>
+          </a>
+          <a
+            href="/Mohamed_shaifudeen_Resume.pdf"
+            download
+            className="flex items-center gap-2 px-4 py-2 rounded-full bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 text-sm font-medium"
+          >
+            <Download className="w-4 h-4" />
+            <span className="hidden sm:inline">Resume</span>
           </a>
         </div>
       </div>
