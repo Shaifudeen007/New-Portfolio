@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, Home, User, Briefcase, FolderOpen, Award, Heart, Mail, Camera } from "lucide-react";
+import { Menu, X, Home, User, Briefcase, FolderOpen, Award, Heart, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ThemeToggle from "./ThemeToggle";
 
@@ -13,7 +13,6 @@ const Navigation = () => {
     { name: "Projects", href: "#projects", icon: FolderOpen },
     { name: "Internships", href: "#internships", icon: Briefcase },
     { name: "Certifications", href: "#certifications", icon: Award },
-    { name: "Life in Frame", href: "#life-in-frame", icon: Camera },
     { name: "Volunteer", href: "#volunteer", icon: Heart },
     { name: "Contact", href: "#contact", icon: Mail },
   ];
