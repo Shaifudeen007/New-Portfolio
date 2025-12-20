@@ -1,31 +1,7 @@
 import { ArrowRight, ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
-import { useState, useEffect } from "react";
 import profileImg from "@/assets/profile.jpg";
 
-const roles = [
-  "Full-Stack Developer",
-  "AI Enthusiast",
-  "Quick Learner",
-  "Problem Solver",
-  "Cybersecurity Explorer",
-];
-
 const Hero = () => {
-  const [currentRoleIndex, setCurrentRoleIndex] = useState(0);
-  const [isAnimating, setIsAnimating] = useState(false);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsAnimating(true);
-      setTimeout(() => {
-        setCurrentRoleIndex((prev) => (prev + 1) % roles.length);
-        setIsAnimating(false);
-      }, 300);
-    }, 2500);
-
-    return () => clearInterval(interval);
-  }, []);
-
   const scrollToAbout = () => {
     const element = document.getElementById("about");
     if (element) {
@@ -59,19 +35,13 @@ const Hero = () => {
           Mohamed Shaifudeen
         </h1>
 
-        {/* Animated Role/Title */}
-        <div 
-          className="h-10 md:h-12 flex items-center justify-center animate-fade-in overflow-hidden"
+        {/* Role/Title */}
+        <p 
+          className="text-xl md:text-2xl text-primary/80 font-medium animate-fade-in"
           style={{ animationDelay: "0.15s" }}
         >
-          <p 
-            className={`text-xl md:text-2xl text-primary font-medium transition-all duration-300 ${
-              isAnimating ? "opacity-0 translate-y-4" : "opacity-100 translate-y-0"
-            }`}
-          >
-            {roles[currentRoleIndex]}
-          </p>
-        </div>
+          Full-Stack Developer & AI Enthusiast
+        </p>
 
         {/* Subtitle */}
         <p 
