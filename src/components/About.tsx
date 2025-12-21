@@ -187,7 +187,7 @@ const About = () => {
                   I'm a final-year <span className="text-foreground font-semibold">Computer Science Engineering student</span> at E.G.S. Pillay Engineering College, passionate about Java development, artificial intelligence, cybersecurity, and problem solving.
                 </p>
                 <p>
-                  I enjoy building scalable, full-stack applications using technologies like <span className="text-primary font-semibold">React</span>, <span className="text-accent font-semibold">Java</span>, and <span className="text-primary font-semibold">Tailwind CSS</span>, always aiming for clean design and seamless user experience.
+                  I enjoy building scalable, full-stack applications using technologies like <span className="text-primary font-semibold">React</span>, <span className="text-foreground font-semibold">Java</span>, and <span className="text-primary font-semibold">Tailwind CSS</span>, always aiming for clean design and seamless user experience.
                 </p>
                 <p>
                   Currently, I'm working on an <span className="text-primary font-semibold">AI-Driven Automated Penetration Testing Framework</span>, combining intelligent automation with system security to enhance cybersecurity testing.
