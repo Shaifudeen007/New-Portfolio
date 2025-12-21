@@ -32,7 +32,20 @@ const Hero = () => {
           className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold leading-none animate-fade-in"
           style={{ animationDelay: "0.1s" }}
         >
-          Mohamed Shaifudeen
+          {"Mohamed Shaifudeen".split("").map((char, index) => (
+            <span
+              key={index}
+              className="inline-block animate-[wave_1s_ease-in-out_infinite] hover:text-primary transition-colors"
+              style={{ 
+                animationDelay: `${index * 0.05}s`,
+                animationPlayState: "paused"
+              }}
+              onMouseEnter={(e) => e.currentTarget.style.animationPlayState = "running"}
+              onMouseLeave={(e) => e.currentTarget.style.animationPlayState = "paused"}
+            >
+              {char === " " ? "\u00A0" : char}
+            </span>
+          ))}
         </h1>
 
         {/* Role/Title */}
@@ -87,7 +100,7 @@ const Hero = () => {
             <span className="hidden sm:inline">GitHub</span>
           </a>
           <a
-            href="https://linkedin.com/in/mdshaifudeen"
+            href="https://www.linkedin.com/in/mohamed-shaifudeen-r-1a6444399"
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-300 text-sm"
@@ -96,7 +109,7 @@ const Hero = () => {
             <span className="hidden sm:inline">LinkedIn</span>
           </a>
           <a
-            href="mailto:shaifudeen@example.com"
+            href="mailto:shaifshaif144@gmail.com"
             className="flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border/50 hover:border-border hover:bg-muted/50 transition-all duration-300 text-sm"
           >
             <Mail className="w-4 h-4" />
