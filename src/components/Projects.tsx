@@ -28,11 +28,11 @@ const Projects = () => {
       image: "https://images.unsplash.com/photo-1518770660439-4636190af475?w=800&q=80"
     },
     {
-      title: "Green Gourmet Website",
+      title: "Root & Rise",
       description: "Promotes healthy eating through delicious recipe ideas. A beautifully designed frontend application showcasing sustainable and nutritious food choices.",
       domain: "Front-end",
       type: "Project",
-      link: "https://github.com/Shaifudeen007/Green-Gourmet-_Website",
+      link: "https://root-and-rise.vercel.app/",
       image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&q=80"
     }
   ];
