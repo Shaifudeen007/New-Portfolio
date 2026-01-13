@@ -26,6 +26,18 @@ const CodingProfiles = () => {
         { label: "Points Earned", value: "5000+" },
       ],
     },
+    {
+  platform: "LeetCode",
+  icon: /* LeetCode Icon Component */,
+  username: "Mohamedshaifudeen",
+  link: "https://leetcode.com/u/Mohamedshaifudeen/",
+  color: "from-orange-500 to-red-600",
+  stats: [
+    { label: "Problems Solved", value: "42" },
+    { label: "Languages Used", value: "Java + others" },
+  ],
+}
+
   ];
 
   return (
