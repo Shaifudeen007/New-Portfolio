@@ -28,7 +28,7 @@ const CodingProfiles = () => {
     },
     {
   platform: "LeetCode",
-  icon: /* LeetCode Icon Component */,
+  icon: Code2,
   username: "Mohamedshaifudeen",
   link: "https://leetcode.com/u/Mohamedshaifudeen/",
   color: "from-orange-500 to-red-600",
