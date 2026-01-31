@@ -34,7 +34,15 @@ const Projects = () => {
       type: "Project",
       link: "https://root-and-rise.vercel.app/",
       image: "https://images.unsplash.com/photo-1490818387583-1baba5e638af?w=800&q=80"
-    }
+    },
+    {
+  title: "BS Ranjith Portfolio",
+  description: "A professional portfolio website developed for a freelance client to showcase profile, skills, projects, and achievements. Focused on clean UI, smooth navigation, and strong personal branding.",
+  domain: "Front-end",
+  type: "Freelance Project",
+  link: "https://portfolio-ranjithbs.vercel.app/",
+  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+}
   ];
 
   return (
