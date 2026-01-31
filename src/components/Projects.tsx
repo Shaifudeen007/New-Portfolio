@@ -1,5 +1,7 @@
 import { ExternalLink, ArrowRight } from "lucide-react";
 import smartlockerImage from "@/assets/smartlocker.png";
+import ranjithPortfolioImg from "@/assets/image.png";
+
 
 const Projects = () => {
   const projects = [
@@ -41,7 +43,7 @@ const Projects = () => {
   domain: "Front-end",
   type: "Freelance Project",
   link: "https://portfolio-ranjithbs.vercel.app/",
-  image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&q=80"
+  image: ranjithPortfolioImg
 }
   ];
 
